@@ -1,0 +1,83 @@
+{
+    "name": "inovector/mixpost",
+    "description": "Self-hosted social media management software",
+    "keywords": [
+        "inovector",
+        "mixpost",
+        "social",
+        "scheduling",
+        "laravel"
+    ],
+    "homepage": "https://github.com/inovector/mixpost",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dima Botezatu",
+            "email": "dima@inovector.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.1",
+        "ext-fileinfo": "*",
+        "guzzlehttp/guzzle": "^7.5",
+        "illuminate/contracts": "^9.28|^10.0",
+        "inertiajs/inertia-laravel": "^0.6.9",
+        "inovector/twitteroauth": "^7.0",
+        "intervention/image": "^2.7",
+        "php-ffmpeg/php-ffmpeg": "^1.0",
+        "spatie/laravel-package-tools": "^1.14",
+        "spatie/temporary-directory": "^2.1",
+        "tightenco/ziggy": "1.*"
+    },
+    "require-dev": {
+        "nunomaduro/collision": "^6.0",
+        "orchestra/testbench": "^7.0",
+        "pestphp/pest": "^1.21",
+        "pestphp/pest-plugin-faker": "^1.0",
+        "pestphp/pest-plugin-laravel": "^1.1",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Inovector\\Mixpost\\": "src",
+            "Inovector\\Mixpost\\Database\\Factories\\": "database/factories"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Inovector\\Mixpost\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Inovector\\Mixpost\\MixpostServiceProvider"
+            ],
+            "aliases": {
+                "Mixpost": "Inovector\\Mixpost\\Facades\\Mixpost"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
